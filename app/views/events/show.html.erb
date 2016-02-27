@@ -1,0 +1,23 @@
+
+<article>
+  <header>
+    <h1><%= @event.name %></h1>
+  </header>
+  <p><%= @event.description %></p>
+  <table style="text-align: left;">
+    <tr>
+      <th>When:</th>
+      <td><%= @event.starts_at.to_s %></td>
+    </tr>
+    <tr>
+      <th>Where:</th>
+      <td><%= @event.location %></td>
+    </tr>
+    <tr>
+      <th>Price:</th>
+      <td><%= format_price(@event) %></td>
+    </tr>
+  </table>
+</article>
+
+<p><%= link_to "All Events", events_path %></p>

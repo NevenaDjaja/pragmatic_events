@@ -1,0 +1,26 @@
+<h1><%= pluralize(@events.size, 'Events')%></h1>
+
+<div class="container">
+  <% @events.each do |event| %>
+  <article>
+    <header>
+      <h2><%= link_to(event.name, event_path(event)) %></h2>
+    </header>
+    <p><%= truncate(event.description, length: 35, separator: ' ') %></p>
+    <table style="text-align: left;">
+      <tr>
+        <th>When:</th>
+        <td><%= event.starts_at.to_s %></td>
+      </tr>
+      <tr>
+        <th>Where:</th>
+        <td><%= event.location %></td>
+      </tr>
+      <tr>
+        <th>Price:</th>
+        <td><%= format_price(event) %></td>
+      </tr>
+    </table>
+  </article>    
+  <% end %>
+</div>
