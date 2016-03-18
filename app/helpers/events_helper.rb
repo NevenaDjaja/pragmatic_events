@@ -7,4 +7,12 @@ module EventsHelper
 			number_to_currency(event.price) 
 		end
 	end
+
+	def image_for(event) 
+		if event.image_file_name.blank?
+			image_tag 'placeholder.png', class: 'event-icon'
+		else
+			image_tag event.image_file_name, class: 'event-icon'
+		end
+	end
 end

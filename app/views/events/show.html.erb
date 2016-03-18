@@ -1,7 +1,10 @@
 
 <article>
   <header>
-    <h1><%= @event.name %></h1>
+    <h1>
+      <%= image_for(@event) %>
+      <%= @event.name %>
+    </h1>
   </header>
   <p><%= @event.description %></p>
   <table style="text-align: left;">
@@ -16,6 +19,10 @@
     <tr>
       <th>Price:</th>
       <td><%= format_price(@event) %></td>
+    </tr>
+    <tr>
+      <th>Capacity:</th>
+      <td><%= pluralize(@event.capacity, 'spot') %></td>
     </tr>
   </table>
 </article>
