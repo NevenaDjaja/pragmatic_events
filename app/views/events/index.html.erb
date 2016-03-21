@@ -2,12 +2,10 @@
 <%= link_to "Add New Event", new_event_path %>
 <div class="container">
   <% @events.each do |event| %>
-  <article>
+  <article class="event">
     <header>
-      <h2>
-        <%= image_for(event) %>
-        <%= link_to(event.name, event_path(event)) %>      
-      </h2>
+      <%= image_for(event) %>
+      <h2><%= link_to(event.name, event_path(event)) %></h2>
       <h3><%= pluralize(event.capacity, 'spot') %></h3>
     </header>
     <p><%= truncate(event.description, length: 35, separator: ' ') %></p>
