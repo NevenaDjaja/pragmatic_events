@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   	@event = Event.find(params[:id])
   	# only allow certain attributes
   	if @event.update(event_params)
-  	  redirect_to event_path(@event)	#this resolves to show action
+  	  redirect_to event_path(@event), notice: "Event successfully updated!"	
     else
       render :edit
     end
